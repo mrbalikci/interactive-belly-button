@@ -12,7 +12,7 @@ Sqlite database file and SQLAlchemy inside of the Flask application code was use
 
 * Created a template called `index.html` for the dashboard landing page. Used the Bootstrap grid system to create the structure of the dashboard page.
 
-* Created the following routes for the api.
+* Created the following routes for the api. 
 
 ```python
 @app.route("/")
@@ -50,10 +50,10 @@ Sqlite database file and SQLAlchemy inside of the Flask application code was use
         "Bacteria",
         ...
     ]
-    """
+    """ 
 ```
 ```python
-@app.route('/metadata/<sample>')
+@app.route('/metadata/<id>')
     """MetaData for a given sample.
 
     Args: Sample in the format: `BB_940`
@@ -71,7 +71,7 @@ Sqlite database file and SQLAlchemy inside of the Flask application code was use
     """
 ```
 ```python
-@app.route('/wfreq/<sample>')
+@app.route('/wfreq/<id>')
     """Weekly Washing Frequency as a number.
 
     Args: Sample in the format: `BB_940`
@@ -80,10 +80,10 @@ Sqlite database file and SQLAlchemy inside of the Flask application code was use
     """
 ```
 ```python
-@app.route('/samples/<sample>')
+@app.route('/samples/<id>')
     """OTU IDs and Sample Values for a given sample.
 
-    Sort your Pandas DataFrame (OTU ID and Sample Value)
+    Sort the Pandas DataFrame (OTU ID and Sample Value)
     in Descending Order by Sample Value
 
     Return a list of dictionaries containing sorted lists  for `otu_ids`
@@ -108,7 +108,7 @@ Sqlite database file and SQLAlchemy inside of the Flask application code was use
     """
 ```
 
----
+--- 
 
 ## Plotly.js Setup
 
@@ -126,7 +126,7 @@ Used Plotly.js to build interactive charts for the dashboard.
   * Created a function called `optionChanged` to handle the change event when a new sample is selected (i.e. fetch data for the newly selected sample).
 
 
-* Created a PIE chart that uses data from your routes `/samples/<sample>` and `/otu` to display the top 10 samples.
+* Created a PIE chart that uses data from the routes `/samples/<id>` and `/otu` to display the top 10 samples.
 
   * Used the Sample Value as the values for the PIE chart
 
@@ -138,7 +138,7 @@ Used Plotly.js to build interactive charts for the dashboard.
 
 
 
-* Created a Bubble Chart that uses data from your routes `/samples/<sample>` and `/otu` to plot the __Sample Value__ vs the __OTU ID__ for the selected sample.
+* Created a Bubble Chart that uses data from the routes `/samples/<id>` and `/otu` to plot the __Sample Value__ vs the __OTU ID__ for the selected sample.
 
   * Used the OTU IDs for the x values
 
@@ -146,7 +146,7 @@ Used Plotly.js to build interactive charts for the dashboard.
 
   * Used the Sample Values for the marker size
 
-  * Used the OTU IDs for the marker colors
+  * Used the OTU IDs for the marker colors 
 
   * Used the OTU Description Data for the text values
 
@@ -154,14 +154,11 @@ Used Plotly.js to build interactive charts for the dashboard.
 
 
 
-* Displayed the sample metadata from the route `/metadata/<sample>`
+* Displayed the sample metadata from the route `/metadata/<id>`
 
   * Displayed each key/value pair from the metadata JSON object somewhere on the page
 
   * Updated the metadata for each sample that is selected
 
-* You are welcome to create any layout that you would like for your dashboard. An example dashboard page might look something like the following.
-
-
-* Finally, deploy the Flask app to Heroku.
+* Finally, deployed the Flask app to Heroku.
 
